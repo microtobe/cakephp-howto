@@ -71,7 +71,9 @@ cakephp-howto
 	App::uses('Hash', 'Utility');
 	$record = Hash::merge(Hash::extract($record, '{n}.User'), Hash::extract($record, '{n}.School'));
 
-
+<h3>关闭view试图的自动渲染</h3>
+	如果是ajax调用action，增加$this->autoRender = false;
+	如果是功能action，不需要写$this->autoRender = false，只需要在action的最后增加return; 或者 exit；
 
 
 
