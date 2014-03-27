@@ -59,7 +59,9 @@ Use a action in a any place
 ------
 	App::uses('DboSource', 'Model/Datasource');
 	$dboSource = new DboSource(null, null);
+	//相同长度（"."的个数相同）的版本号比较
 	$conditions[] = $dboSource->expression('INET_ATON(version) > INET_ATON("' . $version . '")');
+	//active字段在[0, 1]之间转换
 	$conditions['active'] = $dboSource->expression('MOD((active + 1), 2)')
 
 字段开关
