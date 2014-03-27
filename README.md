@@ -96,7 +96,8 @@ Use a action in a any place
 关闭view试图的自动渲染
 ------
 	如果是ajax调用action，增加$this->autoRender = false;
-	如果是功能action，不需要增加$this->autoRender = false（这会关闭整个请求的视图渲染），只需要在action的最后<br />增加return; 或者 exit；
+	如果是功能action，不需要增加$this->autoRender = false（这会关闭整个请求的视图渲染），只需要在action的最后
+	增加return; 或者 exit；
 
 
 
