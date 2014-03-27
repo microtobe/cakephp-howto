@@ -43,10 +43,11 @@ cakephp-howto
 	$dboSource = new DboSource(null, null);
 	$this->School->save(array('count' => $dboSource->expression('count = count + 1')));
 
-<h3>字段函数比较</h3>
+<h3>使用字段函数</h3>
 	App::uses('DboSource', 'Model/Datasource');
 	$dboSource = new DboSource(null, null);
 	$conditions[] = $dboSource->expression('INET_ATON(version) > INET_ATON("' . $version . '")');
+	$conditions['active'] = $dboSource->expression('MOD((active + 1), 2)')
 
 <h3>字段开关</h3>
 	App::uses('DboSource', 'Model/Datasource');
