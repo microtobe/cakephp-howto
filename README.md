@@ -4,17 +4,14 @@ cakephp-howto
 <h3>Use a model in a controller (normal)</h3>
 	public $helpers = array('Html', 'pluginName.AnyHelperName');
 
-<h3>Use a component in a controller (normal)</h3>
-	public $components = array('Session', 'pluginName.AnyComponentName);
-
-<h3>Use a helper in a controller (normal)</h3>
-	public $uses = array('User', 'pluginName.AnyModelName');
-
 <h3>Use a model in a action</h3>
 	$this->AnyModelName = $this->loadModel('pluginName.AnyModelName');
 
 <h3>Use a model in any place</h3>
 	$this->AnyModelName = ClassRegistry::init('pluginName.AnyModelName');
+
+<h3>Use a component in a controller (normal)</h3>
+	public $components = array('Session', 'pluginName.AnyComponentName);
 
 <h3>Use a component in a action</h3>
 	$this->AnyComponentName = $this->components->load('pluginName.AnyComponentName');
@@ -25,6 +22,9 @@ cakephp-howto
 <h3>Use a component in any place</h3>
 	App::uses('AnyComponent', 'pluginName.Controller/Component');
 	$this->Any = new AnyComponent(new ComponentCollection());
+
+<h3>Use a helper in a controller (normal)</h3>
+	public $uses = array('User', 'pluginName.AnyModelName');
 
 <h3>Use a helper in a action</h3>
 	$this->helpers[] = 'Html';
