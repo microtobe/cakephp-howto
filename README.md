@@ -64,7 +64,12 @@ Use a action in a other action.
 	ConnectionManager::getDataSource('default')->showLog();
 	ConnectionManager::getDataSource('master')->showLog();
 
-
+<h>格式化数据库结果集（去掉Model层）</h>
+	对单一Model的结果集
+	App::uses('Hash', 'Utility');
+ 	$record = Hash::extract($record, '{n}.User');
+	或
+	$record = current($record);
 
 
 
