@@ -1,8 +1,6 @@
 cakephp-howto
+Some methods about cakephp
 =============
-
-Some methods about cakephp.
-
 
 <h3>Use a model in a controller (normal)</h3>
 	public $helpers = array('Html', 'pluginName.OtherHelperName');
