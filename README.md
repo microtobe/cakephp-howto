@@ -9,7 +9,7 @@ Use a helper in a action.
 
 Use a component in a action.
 
-Use a model in any place.
+<a class="anchor" href="#use-a-model-in-any-place">Use a model in any place</a>.
 
 Use a helper in a other helper.
 
