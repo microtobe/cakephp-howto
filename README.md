@@ -71,11 +71,9 @@ Use a action in a other action.
 	或
 	$record = current($record);
 
-	============对多个Model层的结果集==========
+	============对多个Model层的结果集（利用字段别名避免相同字段名）==========
 	App::uses('Hash', 'Utility');
-	debug(Hash::extract($result, '{n}.Teacher'));
-	debug(Hash::extract($result, '{n}.School'));
-	debug(Hash::merge(Hash::extract($result, '{n}.Teacher'), Hash::extract($result, '{n}.School')));
+	$record = Hash::merge(Hash::extract($record, '{n}.User'), Hash::extract($record, '{n}.School'));
 
 
 
