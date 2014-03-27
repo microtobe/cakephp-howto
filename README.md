@@ -1,31 +1,30 @@
 cakephp-howto
-Some methods about cakephp
 =============
 
 <h3>Use a model in a controller (normal)</h3>
-	public $helpers = array('Html', 'pluginName.OtherHelperName');
+	public $helpers = array('Html', 'pluginName.AnyHelperName');
 
 <h3>Use a component in a controller (normal)</h3>
-	public $components = array('Session', 'pluginName.OtherComponentName);
+	public $components = array('Session', 'pluginName.AnyComponentName);
 
 <h3>Use a helper in a controller (normal)</h3>
-	public $uses = array('User', 'pluginName.OtherModelName');
+	public $uses = array('User', 'pluginName.AnyModelName');
 
 <h3>Use a model in a action</h3>
-	$this->modelName = $this->loadModel('pluginName.modelName');
+	$this->AnyModelName = $this->loadModel('pluginName.AnyModelName');
 
 <h3>Use a model in any place</h3>
-	$this->modelName = ClassRegistry::init('pluginName.modelName');
+	$this->AnyModelName = ClassRegistry::init('pluginName.AnyModelName');
 
 <h3>Use a component in a action</h3>
-	$this->componentName = $this->components->load('pluginName.componentName');
+	$this->AnyComponentName = $this->components->load('pluginName.AnyComponentName');
 
 <h3>Use a component in a other component</h3>
-	$components = array('pluginName.componentName');
+	$components = array('pluginName.AnyComponentName');
 
 <h3>Use a component in any place</h3>
-	App::uses('SomeComponent', 'pluginName.Controller/Component');
-	$this->Some = new SomeComponent(new ComponentCollection());
+	App::uses('AnyComponent', 'pluginName.Controller/Component');
+	$this->Any = new AnyComponent(new ComponentCollection());
 
 <h3>Use a helper in a action</h3>
 	$this->helpers[] = 'Html';
@@ -34,9 +33,9 @@ Some methods about cakephp
 	$helpers = array(‘Html’);
 
 <h3>Use a action in a any place</h3>
-	App::uses('SomeController', 'pluginName.Controller');
-	$someController = new SomeController();
-	$someController->someAction();
+	App::uses('AnyController', 'pluginName.Controller');
+	$anyController = new AnyController();
+	$anyController->anyAction();
 
 
 <h3>字段自增</h3>
