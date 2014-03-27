@@ -10,16 +10,13 @@ Some methods about cakephp.
 <h3>Use a component in a controller</h3>
 	public $components = array('Session', 'pluginName.OtherComponentName);
 
-</h3>Use a helper in a controller</h3>
+<h3>Use a helper in a controller</h3>
 	public $uses = array('User', 'pluginName.OtherModelName');
 
-
-========================USE MODEL======================
-
-Use a model in a action.
+<h3>Use a model in a action</h3>
 	$this->modelName = $this->loadModel('pluginName.modelName');
 
-Use a model in any place.
+<h3>Use a model in any place</h3>
 	$this->modelName = ClassRegistry::init('pluginName.modelName');
 
 ========================USE COMPONENT======================
@@ -58,20 +55,19 @@ Use a action in a other action.
 	$dboSource = new DboSource(null, null);
 	$this->School->save(array('active' => $dboSource->expression('IF(active = "y", "n", "y")')));
 
-
 <h3>区分DataSource打印sql记录</h3>
 	App::uses('ConnectionManager', 'Model');
 	ConnectionManager::getDataSource('default')->showLog();
 	ConnectionManager::getDataSource('master')->showLog();
 
-<h3>格式化数据库结果集（去掉Model层）</h3>
-	============对单一Model层的结果集==========
+<h3>格式化数据库结果集</h3>
+	============去掉Model层（单一Model层）==========
 	App::uses('Hash', 'Utility');
  	$record = Hash::extract($record, '{n}.User');
 	或
 	$record = current($record);
 
-	============对多个Model层的结果集（利用字段别名避免相同字段名）==========
+	============对多个Model层合并到同一层（利用字段别名避免相同字段名）==========
 	App::uses('Hash', 'Utility');
 	$record = Hash::merge(Hash::extract($record, '{n}.User'), Hash::extract($record, '{n}.School'));
 
