@@ -5,15 +5,23 @@ Some methods about cakephp.
 
 ========================NORMAL METHODS TO USE======================
 
-<a class="anchor" href="#normal-methods-in-a-controller">Use a model in a controller</a>.
-<a class="anchor" href="#normal-methods-in-a-controller">Use a component in a controller</a>.
-<a class="anchor" href="#normal-methods-in-a-controller">Use a helper in a controller</a>.
+Use a model in a controller.
+	public $helpers = array('Html', 'pluginName.OtherHelperName');
+
+Use a component in a controller.
+	public $components = array('Session', 'pluginName.OtherComponentName);
+
+Use a helper in a controller.
+	public $uses = array('User', 'pluginName.OtherModelName');
+
 
 ========================USE MODEL======================
 
-<a class="anchor" href="#use-a-model-in-a-action">Use a model in a action</a>.
+Use a model in a action.
+	$this->modelName = $this->loadModel('pluginName.modelName');
 
-<a class="anchor" href="#use-a-model-in-any-place">Use a model in any place</a>.
+Use a model in any place.
+	$this->modelName = ClassRegistry::init('pluginName.modelName');
 
 ========================USE COMPONENT======================
 
@@ -35,21 +43,36 @@ Use a helper in a other helper.
 
 Use a action in a other action.
 
+========================USE EXPRESS IN SQL======================
 
-<h2>Normal methods in a controller</h2>
-public $helpers = array('Html', 'pluginName.OtherHelperName');
+<h1>字段自增</h1>
+	App::uses('DboSource', 'Model/Datasource');
+	$dboSource = new DboSource(null, null);
+	$this->School->save(array('count' => $dboSource->expression('count = count + 1')));
 
-public $components = array('Session', 'pluginName.OtherComponentName);
+<h1>字段函数比较</h1>
+	App::uses('DboSource', 'Model/Datasource');
+	$dboSource = new DboSource(null, null);
+	$conditions[] = $dboSource->expression('INET_ATON(version) > INET_ATON("' . $version . '")');
 
-public $uses = array('User', 'pluginName.OtherModelName');
+<h1>字段开关</h1>
+	App::uses('DboSource', 'Model/Datasource');
+	$dboSource = new DboSource(null, null);
+	$this->School->save(array('active' => $dboSource->expression('IF(active = "y", "n", "y")')));
+
+========================打印Cakephp Sql记录======================
+
+<h1>区分DataSource打印sql记录</h1>
+	App::uses('ConnectionManager', 'Model');
+	ConnectionManager::getDataSource('default')->showLog();
+	ConnectionManager::getDataSource('master')->showLog();
 
 
 
-<h2>Use a model in a action</h2>
-$this->modelName = $this->loadModel('pluginName.modelName');
 
 
 
 
-<h2>Use a model in any place</h2>
-$this->modelName = ClassRegistry::init('pluginName.modelName');
+
+
+
