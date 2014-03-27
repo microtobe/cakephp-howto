@@ -3,15 +3,14 @@ cakephp-howto
 
 Some methods about cakephp.
 
-========================NORMAL METHODS TO USE======================
 
-Use a model in a controller.
+<h2>Use a model in a controller</h2>
 	public $helpers = array('Html', 'pluginName.OtherHelperName');
 
-Use a component in a controller.
+<h2>Use a component in a controller</h2>
 	public $components = array('Session', 'pluginName.OtherComponentName);
 
-Use a helper in a controller.
+</h2>Use a helper in a controller</h2>
 	public $uses = array('User', 'pluginName.OtherModelName');
 
 
@@ -43,7 +42,6 @@ Use a helper in a other helper.
 
 Use a action in a other action.
 
-========================USE EXPRESS IN SQL======================
 
 <h1>字段自增</h1>
 	App::uses('DboSource', 'Model/Datasource');
@@ -60,7 +58,6 @@ Use a action in a other action.
 	$dboSource = new DboSource(null, null);
 	$this->School->save(array('active' => $dboSource->expression('IF(active = "y", "n", "y")')));
 
-========================打印Cakephp Sql记录======================
 
 <h1>区分DataSource打印sql记录</h1>
 	App::uses('ConnectionManager', 'Model');
