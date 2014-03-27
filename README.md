@@ -4,13 +4,13 @@ cakephp-howto
 Some methods about cakephp.
 
 
-<h2>Use a model in a controller</h2>
+<h3>Use a model in a controller</h3>
 	public $helpers = array('Html', 'pluginName.OtherHelperName');
 
-<h2>Use a component in a controller</h2>
+<h3>Use a component in a controller</h3>
 	public $components = array('Session', 'pluginName.OtherComponentName);
 
-</h2>Use a helper in a controller</h2>
+</h3>Use a helper in a controller</h3>
 	public $uses = array('User', 'pluginName.OtherModelName');
 
 
@@ -43,36 +43,39 @@ Use a helper in a other helper.
 Use a action in a other action.
 
 
-<h1>字段自增</h1>
+<h3>字段自增</h3>
 	App::uses('DboSource', 'Model/Datasource');
 	$dboSource = new DboSource(null, null);
 	$this->School->save(array('count' => $dboSource->expression('count = count + 1')));
 
-<h1>字段函数比较</h1>
+<h3>字段函数比较</h3>
 	App::uses('DboSource', 'Model/Datasource');
 	$dboSource = new DboSource(null, null);
 	$conditions[] = $dboSource->expression('INET_ATON(version) > INET_ATON("' . $version . '")');
 
-<h1>字段开关</h1>
+<h3>字段开关</h3>
 	App::uses('DboSource', 'Model/Datasource');
 	$dboSource = new DboSource(null, null);
 	$this->School->save(array('active' => $dboSource->expression('IF(active = "y", "n", "y")')));
 
 
-<h1>区分DataSource打印sql记录</h1>
+<h3>区分DataSource打印sql记录</h3>
 	App::uses('ConnectionManager', 'Model');
 	ConnectionManager::getDataSource('default')->showLog();
 	ConnectionManager::getDataSource('master')->showLog();
 
 <h3>格式化数据库结果集（去掉Model层）</h3>
-	对单一Model的结果集
+	============对单一Model层的结果集==========
 	App::uses('Hash', 'Utility');
  	$record = Hash::extract($record, '{n}.User');
 	或
 	$record = current($record);
 
-
-
+	============对多个Model层的结果集==========
+	App::uses('Hash', 'Utility');
+	debug(Hash::extract($result, '{n}.Teacher'));
+	debug(Hash::extract($result, '{n}.School'));
+	debug(Hash::merge(Hash::extract($result, '{n}.Teacher'), Hash::extract($result, '{n}.School')));
 
 
 
