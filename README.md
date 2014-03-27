@@ -48,6 +48,7 @@ Use a action in a any place
 	$anyController = new AnyController();
 	$anyController->anyAction();
 
+***************
 
 字段自增
 ------
@@ -76,6 +77,7 @@ Use a action in a any place
 	ConnectionManager::getDataSource('default')->showLog();
 	ConnectionManager::getDataSource('master')->showLog();
 
+***************
 	
 格式化数据库结果集
 ------
@@ -89,7 +91,8 @@ Use a action in a any place
 	App::uses('Hash', 'Utility');
 	$record = Hash::merge(Hash::extract($record, '{n}.User'), Hash::extract($record, '{n}.School'));
 
-	
+*********************
+
 关闭view试图的自动渲染
 ------
 	如果是ajax调用action，增加$this->autoRender = false;
